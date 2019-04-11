@@ -1,20 +1,18 @@
 package com.example.tensaiye.popularmovie;
 
 import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
-public class Basicmovie {
-
+public class BasicReview
+{
     @SerializedName("results")
-    private List<Movie> results;
+    private List<Review> results;
 
-    public List<Movie> getResults() {
+    public List<Review> getResults() {
         return results;
     }
-    public void setResults(List<Movie> results) {
+    public void setResult(List<Review> results) {
         this.results = results;
     }
-
-
-
 }

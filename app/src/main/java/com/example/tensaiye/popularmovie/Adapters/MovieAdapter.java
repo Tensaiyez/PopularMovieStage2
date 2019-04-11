@@ -1,6 +1,7 @@
-package com.example.tensaiye.popularmovie;
+package com.example.tensaiye.popularmovie.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.tensaiye.popularmovie.DetailActivity;
+import com.example.tensaiye.popularmovie.Movie;
+import com.example.tensaiye.popularmovie.R;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 
@@ -17,8 +22,8 @@ import java.util.List;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 private List<Movie>movies;
 private Context mContext;
-private  int num;
-private ItemClickListener itemClickListener;
+private  int layoutID;
+
 
     public class MovieViewHolder extends RecyclerView.ViewHolder  {
     GridLayout moviesLayout;
@@ -34,24 +39,32 @@ private ItemClickListener itemClickListener;
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(itemClickListener!=null)
-                    itemClickListener.onItemClick(v,getAdapterPosition());
+                int position = getAdapterPosition();
+                Intent intent = new Intent(mContext, DetailActivity.class);
+
+                intent.putExtra("id",movies.get(position).getId());
+                intent.putExtra("original_name", movies.get(position).getOriginalName());
+                intent.putExtra("release_date", movies.get(position).getReleaseDate());
+                intent.putExtra("poster_image", movies.get(position).getPosterImage());
+                intent.putExtra("overview", movies.get(position).getOverView());
+                intent.putExtra("user_rating", movies.get(position).getUserRating());
+                intent.putExtra("backdrop_path",movies.get(position).getBackdrop());
+               intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(intent);
+
             }
         });
     }
-
-
-
     }
-public MovieAdapter(List<Movie>movies,int num,Context context){
+public MovieAdapter(List<Movie>movies,int layoutID,Context context){
     this.movies=movies;
-    this.num=num;
+    this.layoutID =layoutID;
     this.mContext=context;
 }
     @NonNull
     @Override
     public MovieAdapter.MovieViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-    View view=LayoutInflater.from(viewGroup.getContext()).inflate(num,viewGroup,false);
+    View view=LayoutInflater.from(viewGroup.getContext()).inflate(layoutID,viewGroup,false);
     return new MovieViewHolder(view);
     }
 
@@ -70,10 +83,5 @@ public MovieAdapter(List<Movie>movies,int num,Context context){
     public int getItemCount() {
         return movies.size();
     }
-    public void setOnClickListener(ItemClickListener itemClickListener){
-        this.itemClickListener=itemClickListener;
-    }
-    public interface ItemClickListener{
-        void onItemClick(View v,int position);
-    }
+
 }

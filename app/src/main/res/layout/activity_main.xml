@@ -16,6 +16,7 @@
         android:orientation="horizontal"
         android:layout_gravity="right">
 
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
@@ -32,16 +33,62 @@
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp" />
     </LinearLayout>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="left">
+    <TextView
+        android:id="@+id/PopularTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:paddingLeft="15dp"
+        android:text="Popular Movies"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:visibility="invisible"/>
 
+    <TextView
+        android:id="@+id/HighestTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Top Rated Movies"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingLeft="15dp"
+        android:visibility="invisible"/>
+
+</RelativeLayout>
     <android.support.v7.widget.RecyclerView
 
-        android:id="@+id/MovieList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="5dp"
-        android:foregroundGravity="top|center">
+    android:id="@+id/MovieList"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:foregroundGravity="top|center">
 
-    </android.support.v7.widget.RecyclerView>
+</android.support.v7.widget.RecyclerView>
 
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="left"-->
+        <!--android:paddingLeft="15dp"-->
+        <!--android:text="Highest Rated"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="24sp"-->
+        <!--android:textStyle="bold"/>-->
+    <!--<android.support.v7.widget.RecyclerView-->
+
+        <!--android:id="@+id/MovieListTopRated"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="5dp"-->
+        <!--android:foregroundGravity="top|center">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
 
 </LinearLayout>

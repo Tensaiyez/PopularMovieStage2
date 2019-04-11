@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_dark_background"
+    android:background="@color/colorPrimary"
     android:fitsSystemWindows="true"
-    >
+    android:id="@+id/coordinate">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,9 +21,11 @@
             app:expandedTitleTextAppearance="@android:color/transparent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
             app:titleEnabled="false">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="15dp"></LinearLayout>
+
             <ImageView
                 android:id="@+id/Poster_tv"
 
@@ -37,12 +39,11 @@
                 android:scaleType="centerCrop" />
 
 
-
             <android.support.v7.widget.Toolbar
                 android:id="@+id/detail_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:gravity="bottom|center"
+                android:gravity="top|center"
                 app:layout_collapseMode="pin">
 
             </android.support.v7.widget.Toolbar>
@@ -64,6 +65,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
             <TextView
                 android:id="@+id/Original_tv"
                 android:layout_width="wrap_content"
@@ -71,14 +73,25 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:paddingStart="3dp"
-                android:paddingEnd="3dp"
                 android:paddingTop="3dp"
+                android:paddingEnd="3dp"
                 android:paddingBottom="20dp"
                 android:text="@string/detail_original_title"
-                android:textColor="@color/cardview_light_background"
+                android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+            <Button
+                android:id="@+id/DetailsaveButton"
+                android:layout_width="160dp"
+                android:layout_height="30dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:background="@color/red"
+                android:fadingEdge="vertical"
+                android:shadowColor="@color/white"
+                android:text="Add to Favorites"
+                android:textColor="@color/white" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -87,14 +100,13 @@
                 android:orientation="vertical">
 
 
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="3dp"
                     android:paddingBottom="20dp"
                     android:text="@string/detail_overview"
-                    android:textColor="@color/cardview_light_background"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -103,11 +115,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="3dp"
-                    android:paddingEnd="10dp"
                     android:paddingTop="3dp"
+                    android:paddingEnd="10dp"
                     android:paddingBottom="20dp"
-                    android:textColor="@color/cardview_light_background"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"></LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -115,7 +132,7 @@
                     android:paddingTop="3dp"
                     android:paddingBottom="3dp"
                     android:text="@string/detail_vote_average"
-                    android:textColor="@color/cardview_light_background"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -124,10 +141,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="3dp"
-                    android:paddingEnd="3dp"
                     android:paddingTop="3dp"
+                    android:paddingEnd="3dp"
                     android:paddingBottom="20dp"
-                    android:textColor="@color/cardview_light_background"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <TextView
@@ -135,8 +152,25 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="3dp"
                     android:paddingBottom="3dp"
+                    android:text="@string/trailer"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/Trailer_rv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
                     android:text="@string/detail_release_date"
-                    android:textColor="@color/cardview_light_background"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -145,11 +179,58 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="3dp"
-                    android:paddingEnd="10dp"
                     android:paddingTop="3dp"
+                    android:paddingEnd="10dp"
                     android:paddingBottom="20dp"
-                    android:textColor="@color/cardview_light_background"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:text="@string/review"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Reviews_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="11dp"
+                    android:paddingStart="3dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/NoReview_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="3dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="20dp"
+                    android:text="There are currently no review available!"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/Favorite_rv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/Review_rv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
 
 
             </LinearLayout>
@@ -157,4 +238,5 @@
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+
 </android.support.design.widget.CoordinatorLayout>

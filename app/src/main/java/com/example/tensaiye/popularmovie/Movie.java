@@ -21,7 +21,8 @@ public class Movie implements Parcelable {
     private String ReleaseDate;
     @SerializedName("backdrop_path")
     private String Backdrop;
-
+    @SerializedName("id")
+    private String Id;
 
 
 
@@ -32,12 +33,17 @@ public class Movie implements Parcelable {
         this.OriginalName = in.readString();
         this.PosterImage = in.readString();
         this.Backdrop=in.readString();
+        this.Id=in.readString();
     }
 
 
+    public String getId() {
+        return Id;
+    }
 
-
-
+    public void setId(String id) {
+        Id = id;
+    }
 
     public String getOriginalName() {
         return OriginalName;
@@ -100,6 +106,7 @@ public class Movie implements Parcelable {
         parcel.writeString(OverView);
         parcel.writeString(ReleaseDate);
         parcel.writeString(Backdrop);
+        parcel.writeString(Id);
     }
 
     public static final Creator<Movie> CREATOR = new Creator<Movie>() {
