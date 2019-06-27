@@ -1,5 +1,5 @@
 # PopularMovieStage2
-This app allows user to go through the highest rated and most popular movies. Retrofit+LiveData+Room+MVVM
+This app allows users to go through the highest rated and most popular movies. Retrofit+LiveData+Room+MVVM
 
 
 
